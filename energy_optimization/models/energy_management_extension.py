@@ -120,3 +120,11 @@ class EnergyConsumption(models.Model):
                 record.potential_savings = current_prediction - best_consumption
 
                 record.optimized_schedule = f"Efficienza suggerita: {best_efficiency}% - Risparmio: {record.potential_savings:.2f} kWh"
+
+    @api.depends('energy_usage', 'machine_efficiency')
+    def _compute_maintenance(self):
+        for record in self:
+            if record.energy_usage > 150 or (hasattr(record, 'machine_efficiency') and record.machine_efficiency < 70):
+                record.maintenance_flag = True
+            else:
+                record.maintenance_flag = False
