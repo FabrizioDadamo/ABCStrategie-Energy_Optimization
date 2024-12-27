@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_energy_optimization_user,access_energy_optimization_user,model_energy_optimization,,1,1,1,1
+access_energy_consumption_extension,access_energy_consumption_extension,model_energy_consumption,,1,1,0,0

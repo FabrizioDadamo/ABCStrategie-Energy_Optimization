@@ -1,0 +1,83 @@
+<odoo>
+    <record id="view_energy_consumption_form_extended" model="ir.ui.view">
+        <field name="name">energy.consumption.form.extended</field>
+        <field name="model">energy.consumption</field>
+        <field name="inherit_id" ref="energy_management.view_energy_consumption_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <field name="machine_efficiency"/>
+                <field name="optimized_consumption"/>
+                <field name="suggested_efficiency"/>
+                <field name="potential_savings"/>
+                <field name="optimized_schedule" readonly="1"/>
+                <field name="maintenance_flag" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_energy_consumption_graph_extended" model="ir.ui.view">
+        <field name="name">energy.consumption.graph.extended</field>
+        <field name="model">energy.consumption</field>
+        <field name="inherit_id" ref="energy_management.view_energy_consumption_graph"/>
+        <field name="arch" type="xml">
+            <xpath expr="//graph" position="inside">
+                <field name="optimized_consumption" type="measure"/>
+                <field name="potential_savings" type="measure"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_machine_kanban_with_prediction" model="ir.ui.view">
+        <field name="name">machine.kanban.with.prediction</field>
+        <field name="model">energy.consumption</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <strong><field name="name"/></strong>
+                            <div class="oe_kanban_content">
+                                <!-- Visualizza il consumo ottimizzato -->
+                                <p>Consumo Ottimizzato: <field name="optimized_consumption"/> kWh</p>
+                                <!-- Visualizza l'efficienza suggerita -->
+                                <p>Efficienza Suggerita: <field name="suggested_efficiency"/>%</p>
+                                <!-- Visualizza il potenziale risparmio -->
+                                <p>Potenziale Risparmio: <field name="potential_savings"/> kWh</p>
+                                <!-- Visualizza la pianificazione ottimizzata -->
+                                <p>Pianificazione Ottimizzata: <field name="optimized_schedule"/></p>
+                                <!-- Flag di manutenzione -->
+                                <p>Manutenzione Necessaria: <field name="maintenance_flag"/></p>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+     <record id="view_machine_form_with_prediction" model="ir.ui.view">
+        <field name="name">machine.form.with.prediction</field>
+        <field name="model">energy.consumption</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <!-- Nome del macchinario -->
+                        <field name="name"/>
+                        <!-- Consumo ottimizzato -->
+                        <field name="optimized_consumption" readonly="1"/>
+                        <!-- Efficienza suggerita -->
+                        <field name="suggested_efficiency" readonly="1"/>
+                        <!-- Potenziale risparmio -->
+                        <field name="potential_savings" readonly="1"/>
+                        <!-- Pianificazione ottimizzata -->
+                        <field name="optimized_schedule" readonly="1"/>
+                        <!-- Flag di manutenzione -->
+                        <field name="maintenance_flag" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

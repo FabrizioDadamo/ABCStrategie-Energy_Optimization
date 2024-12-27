@@ -1,0 +1,9 @@
+<odoo>
+    <record id="energy_optimization_1" model="energy.optimization">
+        <field name="name">Linea 1</field>
+        <field name="energy_usage">100</field>
+        <field name="machine_efficiency">85</field>
+        <field name="temperature">22</field>
+        <field name="humidity">60</field>
+    </record>
+</odoo>
