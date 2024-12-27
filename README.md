@@ -17,7 +17,8 @@ Il modulo **Energy Optimization** per Odoo è progettato per ottimizzare i consu
 
 ### Passaggi per l'Installazione
 
-1. **Clona il repository**
+### 1. Necessaria Installazione di numPy e sciKitLearn
+### 2. Clona il repository*
    Per iniziare, clona il repository direttamente nel tuo ambiente Odoo:
    ```bash
    git clone https://github.com/FabrizioDadamo/ABCStrategie-Energy_Optimization.git
